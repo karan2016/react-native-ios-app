@@ -13,6 +13,7 @@ import {
     Image,
 } from 'react-native';
 import {Card, TabBar, Carousel, Button, WingBlank, WhiteSpace} from 'antd-mobile';
+import {Camera} from './components/Camera'
 
 
 const instructions = Platform.select({
@@ -218,7 +219,10 @@ export default class App extends Component<Props> {
                         }}
                     >
 
-                        <View><Text>four</Text></View>
+                        <View>
+                            <Text>four</Text>
+                            <Camera />
+                        </View>
                     </TabBar.Item>
                 </TabBar>
             </View>
