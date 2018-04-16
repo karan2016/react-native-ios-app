@@ -218,16 +218,12 @@ export default class App extends Component<Props> {
                             });
                         }}
                     >
-
-                        <View>
-                            <Text>four</Text>
-                            <Camera />
-                        </View>
+                        <Camera/>
                     </TabBar.Item>
                 </TabBar>
             </View>
         )
+
     }
 }
-
 

@@ -9,10 +9,11 @@ import {
 } from 'react-native';
 import {RNCamera} from 'react-native-camera';
 
-export default class Camera extends Component {
+export class Camera extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <Text>this iis chang</Text>
                 <RNCamera
                     ref={ref => {
                         this.camera = ref;
@@ -37,9 +38,9 @@ export default class Camera extends Component {
 
     takePicture = async function () {
         if (this.camera) {
-            const options = {quality: 0.5, base64: true};
-            const data = await this.camera.takePictureAsync(options)
-            console.log(data.uri);
+            // const options = {quality: 0.5, base64: true};
+            const data = await this.camera.takePictureAsync()
+            console.warn('data:',data)
         }
     };
 }
