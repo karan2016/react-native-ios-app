@@ -5,6 +5,7 @@
  */
 
 import React, {Component} from 'react';
+
 import {
     Platform,
     StyleSheet,
@@ -14,6 +15,7 @@ import {
 } from 'react-native';
 import {Card, TabBar, Carousel, Button, WingBlank, WhiteSpace} from 'antd-mobile';
 import {Camera} from './components/Camera'
+import {Jpush} from './components/Push/Jpush'
 
 
 const instructions = Platform.select({
@@ -220,10 +222,38 @@ export default class App extends Component<Props> {
                     >
                         <Camera/>
                     </TabBar.Item>
+
+                    <TabBar.Item
+                        icon={{uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg'}}
+                        selectedIcon={{uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg'}}
+                        title="Push"
+                        key="push"
+                        icon={
+                            <View style={{
+                                width: '22px',
+                                height: '22px',
+                            }}
+                            />
+                        }
+                        selectedIcon={
+                            <View style={{
+                                width: '22px',
+                                height: '22px',
+                            }}
+                            />
+                        }
+                        selected={this.state.selectedTab === 'push'}
+                        onPress={() => {
+                            this.setState({
+                                selectedTab: 'push',
+                            });
+                        }}
+                    >
+                        <Jpush/>
+                    </TabBar.Item>
                 </TabBar>
             </View>
         )
-
     }
 }
 
