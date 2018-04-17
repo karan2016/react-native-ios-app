@@ -13,7 +13,6 @@ export class Camera extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>this iis chang</Text>
                 <RNCamera
                     ref={ref => {
                         this.camera = ref;
@@ -24,7 +23,12 @@ export class Camera extends Component {
                     permissionDialogTitle={'Permission to use camera'}
                     permissionDialogMessage={'We need your permission to use your camera phone'}
                 />
-                <View style={{flex: 0, flexDirection: 'row', justifyContent: 'center',}}>
+                <View style={{
+                    position: 'absolute', 
+                    bottom: 100,
+                    flexDirection: 'row'
+                }}
+                >
                     <TouchableOpacity
                         onPress={this.takePicture.bind(this)}
                         style={styles.capture}
@@ -49,12 +53,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: 'black'
+        backgroundColor: 'black',
+        position: 'relative'
     },
     preview: {
         flex: 1,
-        justifyContent: 'flex-end',
-        alignItems: 'center'
+        justifyContent: 'flex-start',
+        alignItems: 'center',
     },
     capture: {
         flex: 0,
@@ -62,7 +67,6 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         padding: 15,
         paddingHorizontal: 20,
-        alignSelf: 'center',
-        margin: 20
+        marginLeft: 150
     }
 });
