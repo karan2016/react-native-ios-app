@@ -44,7 +44,7 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		8EFEC1627F974672B89E6CD5 /* libRCTJCoreModule.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C2B0915C86D4D6D9EBA0843 /* libRCTJCoreModule.a */; };
 		908E2D05FD104206B2E11049 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6589E4E734564093BE013527 /* CoreTelephony.framework */; };
-		9F53274677DA4948B1725A1B /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2FB5E7F415848A6AE6BF4C8 /* UserNotifications.framework */; };
+		9F53274677DA4948B1725A1B /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2FB5E7F415848A6AE6BF4C8 /* UserNotifications.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A3FFE573B4124E7C989A8E1C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3FE3F3E762E4929B8B8C4A5 /* SystemConfiguration.framework */; };
 		A948610B9670451AABA0FDAF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 79C0DBA6CC2242A398C071DE /* libz.tbd */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
@@ -393,6 +393,7 @@
 		C3A8836CF6C342D7A3C6029B /* CoreFoundation.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		D2FB5E7F415848A6AE6BF4C8 /* UserNotifications.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		E1E54DAFAC224D1AB4548313 /* CFNetwork.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		E31457522085D181007E748D /* test.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = test.entitlements; path = test/test.entitlements; sourceTree = "<group>"; };
 		EB205B96D53148CE9DF7CDF8 /* Foundation.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F3FE3F3E762E4929B8B8C4A5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -548,6 +549,7 @@
 		13B07FAE1A68108700A75B9A /* test */ = {
 			isa = PBXGroup;
 			children = (
+				E31457522085D181007E748D /* test.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -805,11 +807,20 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = KY5NXFSF8G;
+						DevelopmentTeam = 88Y2CYS8TX;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = KY5NXFSF8G;
+						DevelopmentTeam = 88Y2CYS8TX;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1320,7 +1331,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = KY5NXFSF8G;
+				DEVELOPMENT_TEAM = 88Y2CYS8TX;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1354,7 +1365,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = KY5NXFSF8G;
+				DEVELOPMENT_TEAM = 88Y2CYS8TX;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
@@ -1383,10 +1394,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = test/test.entitlements;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = KY5NXFSF8G;
-				"DEVELOPMENT_TEAM[sdk=*]" = KY5NXFSF8G;
+				DEVELOPMENT_TEAM = 88Y2CYS8TX;
+				"DEVELOPMENT_TEAM[sdk=*]" = 88Y2CYS8TX;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
@@ -1400,7 +1413,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.test.zcs;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.test.zcsh;
 				PRODUCT_NAME = test;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1410,9 +1423,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = test/test.entitlements;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KY5NXFSF8G;
-				"DEVELOPMENT_TEAM[sdk=*]" = KY5NXFSF8G;
+				DEVELOPMENT_TEAM = 88Y2CYS8TX;
+				"DEVELOPMENT_TEAM[sdk=*]" = 88Y2CYS8TX;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios/**",
@@ -1426,7 +1441,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.test.zcs;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.test.zcsh;
 				PRODUCT_NAME = test;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

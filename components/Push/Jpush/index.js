@@ -71,7 +71,7 @@ export class Jpush extends Component {
         JPushModule.getRegistrationID(registrationId => {
             this.setState({
                 registrationId: registrationId
-            })
+            });
         })
     }
 
@@ -202,7 +202,7 @@ export class Jpush extends Component {
     componentWillMount() {
     }
 
-    componentDidMount() {
+    componentDidMount() {  
         if (Platform.OS === 'android') {
             console.warn('JpushModule',JPushModule)
             JPushModule.initPush()
@@ -220,7 +220,13 @@ export class Jpush extends Component {
                 }
             })
         } else {
-            JPushModule.setupPush()
+            JPushModule.setupPush();
+            
+            JPushModule.getRegistrationID(registrationId => {
+                this.setState({
+                    registrationId: registrationId
+                });
+            });
         }
 
         JPushModule.addReceiveCustomMsgListener(map => {
