@@ -5,6 +5,7 @@
  */
 
 import React, {Component} from 'react';
+
 import {
     Platform,
     StyleSheet,
@@ -13,6 +14,8 @@ import {
     Image,
 } from 'react-native';
 import {Card, TabBar, Carousel, Button, WingBlank, WhiteSpace} from 'antd-mobile';
+import {Camera} from './components/Camera'
+import {Jpush} from './components/Push/Jpush'
 
 
 const instructions = Platform.select({
@@ -42,6 +45,7 @@ export default class App extends Component<Props> {
             <View style={this.state.fullScreen ? {
                 display: 'flex',
                 flex: 1,
+                paddingTop: 50
             } : {height: 400}}>
                 <TabBar
                     unselectedTintColor="#949494"
@@ -52,18 +56,18 @@ export default class App extends Component<Props> {
                     <TabBar.Item
                         title="首页"
                         key="home"
-                        icon={<View style={{
-                            width: '22px',
-                            height: '22px'
-                        }}
-                        />
-                        }
-                        selectedIcon={<View style={{
-                            width: '22px',
-                            height: '22px'
-                        }}
-                        />
-                        }
+                        // icon={<View style={{
+                        //     width: '22px',
+                        //     height: '22px'
+                        // }}
+                        // />
+                        // }
+                        // selectedIcon={<View style={{
+                        //     width: '22px',
+                        //     height: '22px'
+                        // }}
+                        // />
+                        // }
                         selected={this.state.selectedTab === 'home'}
                         onPress={() => {
                             this.setState({
@@ -91,20 +95,20 @@ export default class App extends Component<Props> {
                         </View>
                     </TabBar.Item>
                     <TabBar.Item
-                        icon={
-                            <View style={{
-                                width: '22px',
-                                height: '22px',
-                            }}
-                            />
-                        }
-                        selectedIcon={
-                            <View style={{
-                                width: '22px',
-                                height: '22px',
-                            }}
-                            />
-                        }
+                        // icon={
+                        //     <View style={{
+                        //         width: '22px',
+                        //         height: '22px',
+                        //     }}
+                        //     />
+                        // }
+                        // selectedIcon={
+                        //     <View style={{
+                        //         width: '22px',
+                        //         height: '22px',
+                        //     }}
+                        //     />
+                        // }
                         title="需求"
                         key="rqt"
                         selected={this.state.selectedTab === 'rqt'}
@@ -166,20 +170,20 @@ export default class App extends Component<Props> {
                         </View>
                     </TabBar.Item>
                     <TabBar.Item
-                        icon={
-                            <View style={{
-                                width: '22px',
-                                height: '22px',
-                            }}
-                            />
-                        }
-                        selectedIcon={
-                            <View style={{
-                                width: '22px',
-                                height: '22px',
-                            }}
-                            />
-                        }
+                        // icon={
+                        //     <View style={{
+                        //         width: '22px',
+                        //         height: '22px',
+                        //     }}
+                        //     />
+                        // }
+                        // selectedIcon={
+                        //     <View style={{
+                        //         width: '22px',
+                        //         height: '22px',
+                        //     }}
+                        //     />
+                        // }
                         title="订单"
                         key="order"
                         selected={this.state.selectedTab === 'order'}
@@ -192,24 +196,24 @@ export default class App extends Component<Props> {
                         <View><Text>three</Text></View>
                     </TabBar.Item>
                     <TabBar.Item
-                        icon={{uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg'}}
-                        selectedIcon={{uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg'}}
+                        // icon={{uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg'}}
+                        // selectedIcon={{uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg'}}
                         title="我的"
                         key="my"
-                        icon={
-                            <View style={{
-                                width: '22px',
-                                height: '22px',
-                            }}
-                            />
-                        }
-                        selectedIcon={
-                            <View style={{
-                                width: '22px',
-                                height: '22px',
-                            }}
-                            />
-                        }
+                        // icon={
+                        //     <View style={{
+                        //         width: '22px',
+                        //         height: '22px',
+                        //     }}
+                        //     />
+                        // }
+                        // selectedIcon={
+                        //     <View style={{
+                        //         width: '22px',
+                        //         height: '22px',
+                        //     }}
+                        //     />
+                        // }
                         selected={this.state.selectedTab === 'my'}
                         onPress={() => {
                             this.setState({
@@ -217,13 +221,40 @@ export default class App extends Component<Props> {
                             });
                         }}
                     >
+                        <Camera/>
+                    </TabBar.Item>
 
-                        <View><Text>four</Text></View>
+                    <TabBar.Item
+                        // icon={{uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg'}}
+                        // selectedIcon={{uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg'}}
+                        title="Push"
+                        key="push"
+                        // icon={
+                        //     <View style={{
+                        //         width: '22px',
+                        //         height: '22px',
+                        //     }}
+                        //     />
+                        // }
+                        // selectedIcon={
+                        //     <View style={{
+                        //         width: '22px',
+                        //         height: '22px',
+                        //     }}
+                        //     />
+                        // }
+                        selected={this.state.selectedTab === 'push'}
+                        onPress={() => {
+                            this.setState({
+                                selectedTab: 'push',
+                            });
+                        }}
+                    >
+                        <Jpush/>
                     </TabBar.Item>
                 </TabBar>
             </View>
         )
     }
 }
-
 

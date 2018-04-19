@@ -8,8 +8,11 @@
   },
   "dependencies": {
     "antd-mobile": "^2.1.8",
+    "jcore-react-native": "^1.2.5",
+    "jpush-react-native": "^2.1.13",
     "react": "16.3.1",
-    "react-native": "0.55.1"
+    "react-native": "0.55.1",
+    "react-native-camera": "^1.0.3"
   },
   "devDependencies": {
     "babel-jest": "22.4.3",
